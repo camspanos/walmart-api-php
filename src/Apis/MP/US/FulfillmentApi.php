@@ -4324,7 +4324,9 @@ class FulfillmentApi extends BaseApi
             } else {
                 $content = (string) $response->getBody();
                 if ($returnType !== 'string') {
-                    $content = json_decode($content);
+                    if ($content !== '') {
+                        $content = json_decode($content);
+                    }
                 }
             }
 
